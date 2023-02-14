@@ -1,0 +1,15 @@
+{
+  "product": {
+    "name": "Milk",
+    "category": "Dairy",
+    "unit": "Liter",
+    "amount": 1,
+    "properties": {
+      "state": "liquid",
+      "storage_temperature": 4
+    },
+    "keywords": [
+      "cow, lactose"
+    ]
+  }
+}
