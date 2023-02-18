@@ -1,0 +1,25 @@
+{
+  "employees": [
+    {
+      "name": "Jan",
+      "business_period_in_months": 3,
+      "rate": 25,
+      "contract_hours": 160,
+      "taxation_form": 1
+    },
+    {
+      "name": "Konrad",
+      "business_period_in_months": 12,
+      "rate": 40,
+      "contract_hours": 120,
+      "taxation_form": 2
+    },
+    {
+      "name": "Maria",
+      "business_period_in_months": 25,
+      "rate": 35,
+      "contract_hours": 100,
+      "taxation_form": 1
+    }
+  ]
+}
