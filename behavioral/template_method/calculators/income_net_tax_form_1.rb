@@ -1,6 +1,7 @@
 require_relative "./income_net.rb"
 
 module Calculators
+  # The subclass defines its own methods
   class IncomeNetTaxForm1 < IncomeNet
     CONTRIBUTION_RATES = {
       [1,3] => 300,
