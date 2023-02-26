@@ -1,0 +1,30 @@
+{
+  "promotions": [
+    {
+      "type": "DiscountPromotion",
+      "description": "30% discount on product",
+      "threshold": 0,
+      "products": [
+        {
+          "id": 1,
+          "points": null
+        }
+      ]
+    },
+    {
+      "type": "PointsBasedPromotion",
+      "description": "Each collected 10 points give 10 zł off",
+      "threshold": 10,
+      "products": [
+        {
+          "id": 2,
+          "points": 2
+        },
+        {
+          "id": 3,
+          "points": 3
+        }
+      ]
+    }
+  ]
+}

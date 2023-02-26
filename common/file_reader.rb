@@ -5,17 +5,12 @@ class FileReader
   class FileList
     include Enumerable
   
-    def initialize(head, tail = nil)
-      @head = head
-      @tail = tail
-    end
-  
-    def push file
-      FileList.new file, self
+    def initialize(files)
+      @files = files
     end
   
     def each &block
-      head.each do |file_path|
+      files.each do |file_path|
         File.open(file_path)
             .tap { |file| block.call file }
             .then { |file| file.close }
@@ -24,7 +19,7 @@ class FileReader
   
     private
   
-    attr_reader :head, :tile
+    attr_reader :files
   end
 
   def initialize(file_format:, relative_path:)
