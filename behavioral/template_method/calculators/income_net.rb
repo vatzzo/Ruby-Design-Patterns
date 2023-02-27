@@ -26,11 +26,11 @@ module Calculators
     end
 
     def deduct_income_tax
-      raise NotImplemented
+      raise NotImplementedError
     end
 
     def deduct_contributions
-      raise NotImplemented
+      raise NotImplementedError
     end
 
     # Hook method - subclasses can overwrite this
