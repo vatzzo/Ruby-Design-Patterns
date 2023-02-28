@@ -37,7 +37,6 @@ module Services
       promotions.pluck(:type).uniq each do |promotion_type|
         total_price -= DISCOUNT_CALCULATORS[promotion_type].compute self
       end
-
       total_price
     end
   end
