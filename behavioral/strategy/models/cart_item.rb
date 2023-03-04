@@ -1,14 +1,14 @@
 module Models
   class CartItem
-    def initialize(product_id:, quantity:)
-      @product_id = product_id
+    def initialize(product:, quantity:)
+      @product = product
       @quantity = quantity
     end
 
-    attr_reader :product_id, :quantity
-
-    def self.from_hash hash
-      new product_id: hash["product_id"], quantity: hash["quantity"]
+    def price
+      product.price
     end
+
+    attr_reader :product, :quantity
   end
 end

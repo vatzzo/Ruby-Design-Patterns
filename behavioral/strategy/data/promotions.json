@@ -3,6 +3,7 @@
     {
       "type": "DiscountPromotion",
       "description": "30% discount on product",
+      "rebate": 30,
       "threshold": 0,
       "products": [
         {
@@ -15,6 +16,7 @@
       "type": "PointsBasedPromotion",
       "description": "Each collected 10 points give 10 zł off",
       "threshold": 10,
+      "rebate": 10,
       "products": [
         {
           "id": 2,

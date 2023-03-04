@@ -4,19 +4,12 @@ require_relative "../discount_calculators/points_based"
 
 module Services
   class PriceCalculator < BaseService
-    DISCOUNT_CALCULATORS = {
-      "PointsBasedPromotion" => DiscountCalculators::PointsBased.new,
-      "DiscountPromotion" => DiscountCalculators::StandardDiscount.new
-    }
-    private_constant :DISCOUNT_CALCULATORS
-
-    def initialize(cart_items:, promotions:, products:)
+    def initialize(cart_items:, promotions:)
       @cart_items = cart_items
       @promotions = promotions
-      @products = products
     end
 
-    attr_reader :cart_items, :promotions, :products
+    attr_reader :cart_items, :promotions
 
     def call
       calculate_total_items_price.then do |total_price|
@@ -27,16 +20,14 @@ module Services
     private
 
     def calculate_total_items_price
-      cart_items.sum do |item|
-        product = products[item.product_id]
-        item.quantity * product.price
-      end
+      cart_items.sum { |item| item.price * item.quantity }
     end
 
     def subtract_total_discount total_price
-      promotions.pluck(:type).uniq each do |promotion_type|
-        total_price -= DISCOUNT_CALCULATORS[promotion_type].compute self
+      promotions.each do |promotion|
+        total_price -= promotion.calculate_total_discount cart_items
       end
+
       total_price
     end
   end
